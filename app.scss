@@ -1,0 +1,40 @@
+:root {
+  --font-color: #000000;
+  --font-color-reverse: #ffffff;
+  --border-radius-table: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Monospace;
+}
+
+html, body {
+
+}
+
+.wrapper {
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  & tr {
+    & th {
+      padding: 5px;
+      background-color: hsl(184, 100%, 24%);
+      color: var(--font-color-reverse);
+      border: solid;
+      gap: 0;
+      border-color: var(--font-color);
+    }
+
+    & td {
+      padding: 2px;
+      border: solid;
+      border-color: var(--font-color);
+    }
+  }
+}

@@ -1,16 +1,20 @@
 <?php
 
 
-class Room
+abstract class Room
 {
     private $name;
     private $preis;
+    private $zusatzausstattung;
 
-    function __construct(string $name, float $preis)
+    function __construct(string $name, float $preis, array $zusatzausstattung)
     {
         $this->name = $name;
         $this->preis = $preis;
+        $this->zusatzausstattung = $zusatzausstattung;
     }
+
+    public abstract function berechneGrundfläche();
 
     public function getName()
     {
@@ -22,8 +26,13 @@ class Room
         return $this->preis;
     }
 
-    function __toString() : string
+    public function getZusatzausstattung(): string
     {
-        return $this->name . ' ' . $this->preis . '€';
+        return implode(", ", $this->zusatzausstattung);
+    }
+
+    function __toString(): string
+    {
+        return $this->getName() . ' ' . $this->berechneGrundfläche() . ' ' . $this->getPreis() . '€';
     }
 }
