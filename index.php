@@ -29,14 +29,7 @@ require("classes/SquRoom.php");
         $rooms [] = new SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
         $rooms [] = new OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
         foreach ($rooms as $room) {
-            echo <<<ROOM
-            <tr>
-            <td>{$room->getName()}</td>
-            <td>{$room->berechneGrundfläche()}</td>
-            <td>{$room->getPreis()}</td>
-            <td>{$room->getZusatzausstattung()}</td>
-            </tr>
-            ROOM;
+            $room->toHTML();
         }
         ?>
     </table>

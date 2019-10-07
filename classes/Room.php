@@ -16,6 +16,18 @@ abstract class Room
 
     public abstract function berechneGrundfläche();
 
+    public function toHTML(){
+        $flaeche = round($this->berechneGrundfläche(), 2);
+        echo <<<ROOM
+            <tr>
+            <td>{$this->getName()}</td>
+            <td>$flaeche</td>
+            <td>{$this->getPreis()}</td>
+            <td>{$this->getZusatzausstattung()}</td>
+            </tr>
+            ROOM;
+    }
+
     public function getName()
     {
         return $this->name;
