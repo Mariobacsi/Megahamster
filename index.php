@@ -9,9 +9,11 @@
 <body>
 
 <?php
-require("classes/Room.php");
-require("classes/OctRoom.php");
-require("classes/SquRoom.php");
+require("living/Room.php");
+require("living/OctRoom.php");
+require("living/SquRoom.php");
+
+use Mariobacsi\Megahamster\Living as living;
 ?>
 
 <div class="wrapper">
@@ -25,9 +27,9 @@ require("classes/SquRoom.php");
             <th>Ausstattung</th>
         </tr>
         <?php
-        $rooms [] = new SquRoom("The Room", 49, 80, 50, 50);
-        $rooms [] = new SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
-        $rooms [] = new OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
+        $rooms [] = new living\SquRoom("The Room", 49, 80, 50, 50);
+        $rooms [] = new living\SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
+        $rooms [] = new living\OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
         foreach ($rooms as $room) {
             $room->toHTML();
         }
