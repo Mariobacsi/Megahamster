@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Mariobacsi\Megahamster\Living;
 class OctRoom extends Room
 {
     private $seitenlänge;

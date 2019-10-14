@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Mariobacsi\Megahamster\Living;
 class SquRoom extends Room
 {
     private $laenge;

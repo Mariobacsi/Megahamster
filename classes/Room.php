@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Mariobacsi\Megahamster\Living;
 abstract class Room
 {
     private $name;
