@@ -11,8 +11,9 @@ class OctRoom extends Room
         $this->seitenlänge = $seitenlänge;
     }
 
-    public function berechneGrundfläche(){
-        return $this->seitenlänge*$this->seitenlänge*(2+2*sqrt(2));
+    public function berechneGrundfläche()
+    {
+        return $this->seitenlänge * $this->seitenlänge * (2 + 2 * sqrt(2));
     }
 
     public function getSeitenlänge(): float

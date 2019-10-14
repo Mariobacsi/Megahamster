@@ -16,7 +16,8 @@ abstract class Room
 
     public abstract function berechneGrundfläche();
 
-    public function toHTML(){
+    public function toHTML()
+    {
         $flaeche = round($this->berechneGrundfläche(), 2);
         echo <<<ROOM
             <tr>

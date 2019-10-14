@@ -14,6 +14,7 @@ require("living/OctRoom.php");
 require("living/SquRoom.php");
 
 use Mariobacsi\Megahamster\Living as living;
+
 ?>
 
 <div class="wrapper">

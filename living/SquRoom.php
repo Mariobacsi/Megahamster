@@ -17,7 +17,7 @@ class SquRoom extends Room
 
     public function berechneGrundfläche()
     {
-        return $this->laenge*$this->breite;
+        return $this->laenge * $this->breite;
     }
 
 
