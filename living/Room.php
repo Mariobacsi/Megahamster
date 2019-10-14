@@ -16,17 +16,18 @@ abstract class Room
 
     public abstract function berechneGrundfläche();
 
-    public function toHTML()
+    public function toListRow()
     {
         $flaeche = round($this->berechneGrundfläche(), 2);
+        $ausruestung = implode(", ", $this->getZusatzausstattung());
         echo <<<ROOM
             <tr>
-            <td>{$this->getName()}</td>
-            <td>$flaeche</td>
-            <td>{$this->getPreis()}</td>
-            <td>{$this->getZusatzausstattung()}</td>
+                <td>{$this->getName()}</td>
+                <td>$flaeche</td>
+                <td>{$this->getPreis()}</td>
+                <td>$ausruestung</td>
             </tr>
-            ROOM;
+        ROOM;
     }
 
     public function getName()
@@ -39,9 +40,9 @@ abstract class Room
         return $this->preis;
     }
 
-    public function getZusatzausstattung(): string
+    public function getZusatzausstattung(): array
     {
-        return implode(", ", $this->zusatzausstattung);
+        return $this->zusatzausstattung;
     }
 
     function __toString(): string

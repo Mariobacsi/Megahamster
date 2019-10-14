@@ -32,7 +32,7 @@ use Mariobacsi\Megahamster\Living as living;
         $rooms [] = new living\SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
         $rooms [] = new living\OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
         foreach ($rooms as $room) {
-            $room->toHTML();
+            $room->toListRow();
         }
         ?>
     </table>
