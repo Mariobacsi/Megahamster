@@ -1,0 +1,15 @@
+{
+    "name": "mario/megahamster",
+    "authors": [
+        {
+            "name": "Mariobacsi",
+            "email": "mario.s-@live.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mariobacsi\\Megahamster\\": "classes/"
+        }
+    },
+    "require": {}
+}

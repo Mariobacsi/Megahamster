@@ -9,12 +9,9 @@
 <body>
 
 <?php
-require("living/Room.php");
-require("living/OctRoom.php");
-require("living/SquRoom.php");
+require "vendor/autoload.php";
 
-use Mariobacsi\Megahamster\Living as living;
-
+use Mariobacsi\Megahamster\Living as Living;
 ?>
 
 <div class="wrapper">
@@ -28,9 +25,9 @@ use Mariobacsi\Megahamster\Living as living;
             <th>Ausstattung</th>
         </tr>
         <?php
-        $rooms [] = new living\SquRoom("The Room", 49, 80, 50, 50);
-        $rooms [] = new living\SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
-        $rooms [] = new living\OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
+        $rooms [] = new Living\SquRoom("The Room", 49, 80, 50, 50);
+        $rooms [] = new Living\SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
+        $rooms [] = new Living\OctRoom("The Pit", 69, 20, 'hamster training gloves', 'hamster punching bag');
         foreach ($rooms as $room) {
             $room->toListRow();
         }
