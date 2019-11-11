@@ -11,5 +11,7 @@
             "Mariobacsi\\Megahamster\\": "classes/"
         }
     },
-    "require": {}
+    "require": {
+      "ext-json": "*"
+    }
 }

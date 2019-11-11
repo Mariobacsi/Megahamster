@@ -1,17 +1,19 @@
 <?php
 
 namespace Mariobacsi\Megahamster\Living;
-abstract class Room
+abstract class Room implements \JsonSerializable
 {
     private $name;
     private $preis;
-    private $zusatzausstattung;
+    private $zusatzausstattung = ["Kalkleckstein"];
 
     function __construct(string $name, float $preis, array $zusatzausstattung)
     {
         $this->name = $name;
         $this->preis = $preis;
-        $this->zusatzausstattung = $zusatzausstattung;
+        foreach ($zusatzausstattung as $value) {
+            array_push($this->zusatzausstattung, $value);
+        }
     }
 
     public abstract function berechneGrundfläche();
@@ -20,7 +22,7 @@ abstract class Room
     {
         $flaeche = round($this->berechneGrundfläche(), 2);
         $ausruestung = implode(", ", $this->getZusatzausstattung());
-        echo <<<ROOM
+        return <<<ROOM
             <tr>
                 <td>{$this->getName()}</td>
                 <td>$flaeche</td>
@@ -48,5 +50,14 @@ abstract class Room
     function __toString(): string
     {
         return $this->getName() . ' ' . $this->berechneGrundfläche() . ' ' . $this->getPreis() . '€';
+    }
+
+    public function jsonSerialize():array
+    {
+        $rv['Name'] = $this->name;
+        $rv['Grundfläche'] = $this->berechneGrundfläche();
+        $rv['Preis'] = $this->preis;
+        $rv['Zusatzausstattung'] = $this->zusatzausstattung;
+        return $rv;
     }
 }

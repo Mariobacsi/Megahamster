@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Megahamster</title>
+</head>
+<body>
+<div id="content">
+    Content Not Loaded!
+</div>
+<script type="text/javascript">
+    fetch("index.php?format=json").then(function (result) {
+        console.log(result);
+    }).catch(function (err) {
+        console.log(err);
+    });
+</script>
+</body>
+</html>
