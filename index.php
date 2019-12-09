@@ -51,5 +51,3 @@ if (isset($_GET['format']) && $_GET['format'] === "json") {
 site;
     echo $htmlTemplate;
 }
-?>
-

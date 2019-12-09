@@ -3,17 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Megahamster</title>
+
+    <link type="text/css" rel="stylesheet" href="Resources/private/app.css">
 </head>
 <body>
-<div id="content">
+<div id="content" class="wrapper">
     Content Not Loaded!
 </div>
 <script type="text/javascript">
-    fetch("index.php?format=json").then(function (result) {
-        console.log(result);
-    }).catch(function (err) {
-        console.log(err);
-    });
+    fetch("index.php?format=json")
+        .then((result) => {
+            return result.json();
+        })
+        .then((json) => {
+            localStorage.setItem('TableData', JSON.stringify(json));
+            let html = "<h1>Megahamster</h1>" +
+                "<table>" +
+                "        <tr>" +
+                "            <th>Name</th>" +
+                "            <th>Grundfäche</th>" +
+                "            <th>Preis</th>" +
+                "            <th>Zusatzausstattung</th>" +
+                "        </tr>";
+            json.forEach(e => {
+                console.log(e);
+                html +=
+                    "<tr>" +
+                    "       <td>" + e.Name + "</td>" +
+                    "       <td>" + e.Grundfläche + "</td>" +
+                    "       <td>" + e.Preis + "</td>" +
+                    "       <td>" + e.Zusatzausstattung.toString() + "</td>" +
+                    "</tr>";
+            });
+            html += "</table>";
+            document.getElementById("content").innerHTML = html;
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 </script>
 </body>
 </html>
