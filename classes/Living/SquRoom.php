@@ -9,13 +9,13 @@ class SquRoom extends Room
 
     function __construct(string $name, float $preis, float $laenge, float $breite, float $hoehe, string ... $zusatzausstattung)
     {
-        parent::__construct($name, $preis, $zusatzausstattung);
+        parent::__construct($name, $preis, $this->berechneGrundflaeche(), $zusatzausstattung);
         $this->laenge = $laenge;
         $this->breite = $breite;
         $this->hoehe = $hoehe;
     }
 
-    public function berechneGrundfläche()
+    public function berechneGrundflaeche()
     {
         return $this->laenge * $this->breite;
     }

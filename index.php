@@ -1,8 +1,10 @@
 <?php
 
+
 require "vendor/autoload.php";
 
 use Mariobacsi\Megahamster\Living as Living;
+use TYPO3Fluid\Fluid\View\TemplateView;
 
 $rooms [] = new Living\SquRoom("The Room", 49, 80, 50, 50);
 $rooms [] = new Living\SquRoom("The Flat", 149, 120, 80, 80, 'food jars');
@@ -21,33 +23,13 @@ if (isset($_GET['format']) && $_GET['format'] === "json") {
     header("content-type:application/json");
     echo json_encode($rooms);
 } else {
-    $tableData = tableData($rooms);
-    $htmlTemplate = <<<site
+    $view = new TemplateView();
+    $paths = $view->getTemplatePaths();
+    $paths->setTemplatePathAndFilename('./Templates/main.html');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Megahamster</title>
+    /*var_dump($rooms[0]->getZusatzausstattung());*/
+    $values["rooms"] = $rooms;
+    $view->assignMultiple($values);
 
-    <link type="text/css" rel="stylesheet" href="app.css">
-</head>
-<body>
-<div class="wrapper">
-    <h1>Megahamster</h1>
-    <table>
-        <tr>
-            <th>Raum</th>
-            <th>Grundfläche [cm²]</th>
-            <th>Preis</th>
-            <th>Ausstattung</th>
-        </tr>
-        $tableData
-    </table>
-</div>
-</body>
-</html>
-
-site;
-    echo $htmlTemplate;
+    echo $view->render();
 }

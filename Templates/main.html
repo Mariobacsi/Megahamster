@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:f="http://type3.org/ns/TYPO3/CMD/Fluid/ViewHelpers">
+<head>
+    <meta charset="UTF-8">
+    <title>Megahamster</title>
+
+    <link type="text/css" rel="stylesheet" href="../Resources/private/app.css">
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Grundfläche</th>
+        <th>Preis</th>
+        <th>Zusatzausstattung</th>
+    </tr>
+    <f:for each="{rooms}" as="roomentry">
+        <tr>
+            <td>{roomentry.name}</td>
+            <td>{roomentry.grundflaeche}</td>
+            <td>{roomentry.preis}€</td>
+            <td>
+                <f:for each="{roomentry.zusatzausstattung}" as="a">
+                    |{a}|
+                </f:for>
+            </td>
+        </tr>
+    </f:for>
+</table>
+
+</body>
+</html>

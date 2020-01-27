@@ -7,11 +7,11 @@ class OctRoom extends Room
 
     function __construct(string $name, float $preis, float $seitenlänge, string ... $zusatzausstattung)
     {
-        parent::__construct($name, $preis, $zusatzausstattung);
+        parent::__construct($name, $preis, $this->berechneGrundflaeche(), $zusatzausstattung);
         $this->seitenlänge = $seitenlänge;
     }
 
-    public function berechneGrundfläche()
+    public function berechneGrundflaeche()
     {
         return $this->seitenlänge * $this->seitenlänge * (2 + 2 * sqrt(2));
     }
